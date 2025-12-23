@@ -168,8 +168,8 @@
 	var ssAOS = function() {
 
 		AOS.init( {
-      	offset: 200,
-      	duration: 600,
+      	offset: 0,
+      	duration: 700,
       	easing: 'ease-in-sine',
       	delay: 300,
 			once: true,
