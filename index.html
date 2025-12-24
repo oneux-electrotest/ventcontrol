@@ -82,16 +82,16 @@
                     </h1>
 
                     <div class="buttons" data-aos="fade-up">
-                        <a href="#download" class="smoothscroll button stroke">
-                            <span class="fa fa-apple" aria-hidden="true"></span>
-                            Download iOS
-                        </a>
-                        <a href="#download" class="smoothscroll button stroke">
-                            <span class="fa fa-apple" aria-hidden="true"></span>
-                            Download Android
-                        </a>
-                        
-                    </div>                                         
+    <a id="btn-ios" href="#" class="button stroke">
+        <span class="fa fa-apple"></span>
+        Скачать для iOS
+    </a>
+
+    <a id="btn-android" href="#" class="button stroke">
+        <span class="fa fa-android"></span>
+        Скачать для Android
+    </a>
+</div>                                         
 
                 </div>
 
@@ -312,10 +312,43 @@
                     Приложение Ventcontrol работает на операционных системах iOS (16.1 и выше)* и Android (13 и выше).
                 </p>
 
-                <ul class="download-badges">
-                    <li><a href="#" title="" class="badge-appstore"  data-aos="fade-up">App Store</a></li>
-                    <li><a href="#" title="" class="badge-googleplay" data-aos="fade-up">Play Store</a></li>
-                </ul>
+                <script>
+(function () {
+
+  const IOS_LINK = 'https://apps.apple.com/app/idYOUR_APP_ID';
+  const ANDROID_LINK = 'https://play.google.com/store/apps/details?id=com.electrotest.android.VentControl';
+
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  const isAndroid = /android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+  const btnIOS = document.getElementById('btn-ios');
+  const btnAndroid = document.getElementById('btn-android');
+  const badgeIOS = document.getElementById('badge-ios');
+  const badgeAndroid = document.getElementById('badge-android');
+
+  // проставляем ссылки
+  if (btnIOS) btnIOS.href = IOS_LINK;
+  if (badgeIOS) badgeIOS.href = IOS_LINK;
+
+  if (btnAndroid) btnAndroid.href = ANDROID_LINK;
+  if (badgeAndroid) badgeAndroid.href = ANDROID_LINK;
+
+  // логика показа
+  if (isIOS) {
+    if (btnAndroid) btnAndroid.style.display = 'none';
+    if (badgeAndroid) badgeAndroid.style.display = 'none';
+  }
+
+  if (isAndroid) {
+    if (btnIOS) btnIOS.style.display = 'none';
+    if (badgeIOS) badgeIOS.style.display = 'none';
+  }
+
+})();
+</script>
+
 
             </div>
         </div>
