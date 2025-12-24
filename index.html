@@ -312,42 +312,10 @@
                     Приложение Ventcontrol работает на операционных системах iOS (16.1 и выше)* и Android (13 и выше).
                 </p>
 
-                <script>
-(function () {
-
-  const IOS_LINK = 'https://apps.apple.com/app/idYOUR_APP_ID';
-  const ANDROID_LINK = 'https://play.google.com/store/apps/details?id=com.electrotest.android.VentControl';
-
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-  const isAndroid = /android/i.test(ua);
-  const isIOS = /iPhone|iPad|iPod/i.test(ua);
-
-  const btnIOS = document.getElementById('btn-ios');
-  const btnAndroid = document.getElementById('btn-android');
-  const badgeIOS = document.getElementById('badge-ios');
-  const badgeAndroid = document.getElementById('badge-android');
-
-  // проставляем ссылки
-  if (btnIOS) btnIOS.href = IOS_LINK;
-  if (badgeIOS) badgeIOS.href = IOS_LINK;
-
-  if (btnAndroid) btnAndroid.href = ANDROID_LINK;
-  if (badgeAndroid) badgeAndroid.href = ANDROID_LINK;
-
-  // логика показа
-  if (isIOS) {
-    if (btnAndroid) btnAndroid.style.display = 'none';
-    if (badgeAndroid) badgeAndroid.style.display = 'none';
-  }
-
-  if (isAndroid) {
-    if (btnIOS) btnIOS.style.display = 'none';
-    if (badgeIOS) badgeIOS.style.display = 'none';
-  }
-
-})();
-</script>
+                <ul class="download-badges">
+    <li><a id="badge-ios" href="#" class="badge-appstore">App Store</a></li>
+    <li><a id="badge-android" href="#" class="badge-googleplay">Play Store</a></li>
+</ul>
 
 
             </div>
@@ -464,6 +432,46 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+<script>
+(function () {
+
+  const IOS_LINK = 'https://apps.apple.com/app/idYOUR_APP_ID';
+  const ANDROID_LINK = 'https://play.google.com/store/apps/details?id=com.electrotest.android.VentControl
+';
+
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  const isAndroid = /android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+  const btnIOS = document.getElementById('btn-ios');
+  const btnAndroid = document.getElementById('btn-android');
+  const badgeIOS = document.getElementById('badge-ios');
+  const badgeAndroid = document.getElementById('badge-android');
+
+  // проставляем ссылки
+  if (btnIOS) btnIOS.href = IOS_LINK;
+  if (badgeIOS) badgeIOS.href = IOS_LINK;
+
+  if (btnAndroid) btnAndroid.href = ANDROID_LINK;
+  if (badgeAndroid) badgeAndroid.href = ANDROID_LINK;
+
+  // логика показа
+  if (isIOS) {
+    if (btnAndroid) btnAndroid.style.display = 'none';
+    if (badgeAndroid) badgeAndroid.style.display = 'none';
+  }
+
+  if (isAndroid) {
+    if (btnIOS) btnIOS.style.display = 'none';
+    if (badgeIOS) badgeIOS.style.display = 'none';
+  }
+
+})();
+</script>
+
+
 
 </body>
 
