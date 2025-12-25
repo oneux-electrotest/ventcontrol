@@ -440,27 +440,38 @@
 <script>
 (function () {
 
-  const IOS_LINK = 'https://apps.apple.com/ru/app/id891670058';
-  const ANDROID_LINK = 'https://play.google.com/store/apps/details?id=com.electrotest.android.VentControl';
+  /* ==============================
+     ССЫЛКИ НА МАГАЗИНЫ
+  ============================== */
+  const IOS_LINK =
+    'https://apps.apple.com/app/id891670058';
 
+  const ANDROID_LINK =
+    'https://play.google.com/store/apps/details?id=com.electrotest.android.VentControl';
+
+  /* ==============================
+     ОПРЕДЕЛЕНИЕ ПЛАТФОРМЫ
+  ============================== */
   const ua = navigator.userAgent || navigator.vendor || window.opera;
 
   const isAndroid = /android/i.test(ua);
   const isIOS = /iPhone|iPad|iPod/i.test(ua);
 
+  /* ==============================
+     КНОПКИ
+  ============================== */
   const btnIOS = document.getElementById('btn-ios');
   const btnAndroid = document.getElementById('btn-android');
   const badgeIOS = document.getElementById('badge-ios');
   const badgeAndroid = document.getElementById('badge-android');
 
-  // проставляем ссылки
   if (btnIOS) btnIOS.href = IOS_LINK;
   if (badgeIOS) badgeIOS.href = IOS_LINK;
 
   if (btnAndroid) btnAndroid.href = ANDROID_LINK;
   if (badgeAndroid) badgeAndroid.href = ANDROID_LINK;
 
-  // логика показа
+  // скрываем лишние кнопки
   if (isIOS) {
     if (btnAndroid) btnAndroid.style.display = 'none';
     if (badgeAndroid) badgeAndroid.style.display = 'none';
@@ -469,6 +480,33 @@
   if (isAndroid) {
     if (btnIOS) btnIOS.style.display = 'none';
     if (badgeIOS) badgeIOS.style.display = 'none';
+  }
+
+  /* ==============================
+     КАРТИНКА
+  ============================== */
+  const img = document.getElementById('phone-image');
+
+  if (!img) return;
+
+  if (isAndroid) {
+    img.src = 'images/android-app-470.png';
+    img.srcset =
+      'images/android-app-470.png 1x, images/android-app-940.png 2x';
+    img.alt = 'Ventcontrol Android app';
+  }
+  else if (isIOS) {
+    img.src = 'images/iphone-app-470.png';
+    img.srcset =
+      'images/iphone-app-470.png 1x, images/iphone-app-940.png 2x';
+    img.alt = 'Ventcontrol iOS app';
+  }
+  else {
+    // ПК / ноутбук
+    img.src = 'images/desktop-app-470.png';
+    img.srcset =
+      'images/desktop-app-470.png 1x, images/desktop-app-940.png 2x';
+    img.alt = 'Ventcontrol desktop preview';
   }
 
 })();
